@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>6 Lab</title>
+	<style>
+		body {
+			margin: 0;
+			background-color: lightgray;
+			font-family:  sans-serif;
+		}
+		form {
+			padding: 50px 200px;
+		}
+		.container {
+			width: 50%;
+			height: 90%;
+			left: 25%;
+			top: 5%;
+			position: absolute;
+		}
+		input[type="text"]{
+			border:none;
+			border-bottom: 2px gray solid;
+			padding: 10px 10px;
+			outline: none;
+			margin-bottom: 20px;
+			font-size: 18px;
+			width: 287px;
+			background-color:lightgray;
+			color: red;
+			letter-spacing: 3px;
+		}
+		textarea{
+			border: none;
+			border-bottom: 2px gray solid;
+			padding: 10px 10px;
+			font-size: 18px;
+			outline: none;
+			margin-bottom: 20px;
+			background-color: lightgray;
+			resize: none;
+			color: red;
+			letter-spacing: 5px;
+		}
+		input[type="text"]:focus,textarea:focus{
+			border-bottom: 2px red solid;
+			background-color: rgba(169,169,169,.2);
+		}
+		label {
+			font-size: 18px;
+			color: red;
+			padding-left: 7px;
+			margin-right: 40px;
+		}
+		input[type="checkbox"],input[type="radio"] {
+			margin-bottom: 20px;
+		}
+		select {
+			width: 100px; 
+			padding: 10px 10px; 
+			background-color: lightgray;
+			outline: none;
+			border-color: gray;
+		}
+		input[type="button"] { 
+			padding:10px 25px; 
+			font-size: 18px; 
+			outline: none; 
+			margin-top: 70px;
+			margin-left: 40%;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<form>
+			<input type="text" id="txt" placeholder="Your name" autocomplete="none"><br>
+			<textarea cols="27" rows="5" id="comment" placeholder="Comment..."></textarea><br>
+
+			<div style="display: grid; grid-template-columns: 15px 100px 15px 50px">
+				<input type="checkbox" name="checkbox" id="c1" value="Yii"><label for="c1">Yii</label>
+				<input type="checkbox" name="checkbox" id="c2" value="Laravel"><label for="c2">Laravel</label>
+				<input type="checkbox" name="checkbox" id="c3" value="Symfony"><label for="c3">Symfony</label>
+				<input type="checkbox" name="checkbox" id="c4" value="Zend"><label for="c4">Zend</label>
+				<input type="radio" name="radio" id="r1" value="Male"><label for="r1">Male</label>
+				<input type="radio" name="radio" id="r2" value="Female"><label for="r2">Female</label>
+			</div>
+
+			<select id="selectbox">
+				<option>Да</option>
+				<option>Нет</option>
+			</select><br>
+			<input type="button" id="btn" value="Send">
+		</form>
+	</div>
+	<script>
+		document.getElementById('btn').addEventListener('click', function() {
+			let name = document.getElementById('txt').value;
+			let coment = document.getElementById('comment').value;
+
+			let checkbox = document.getElementsByName('checkbox');
+			let chkTxt = '';
+			for (i = 0; i < checkbox.length; i++) {
+				if (checkbox[i].checked) {
+					chkTxt = chkTxt + checkbox[i].value + ', ';
+				}
+			}
+
+			let radio = document.getElementsByName('radio');
+			for (i = 0; i < radio.length; i++) {
+				if (radio[i].checked) {
+					radio = radio[i].value;
+				}
+			}
+
+			let selected = document.getElementById('selectbox');
+			selected = selected.options[selected.selectedIndex].value;
+
+			alert(name + '\n' + coment + '\n' + chkTxt + '\n' + radio + '\n' + selected);
+		});
+
+	</script>
+</body>
+
+</html>

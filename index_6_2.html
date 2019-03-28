@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>6 Lab</title>
+	<style>
+		*{
+			margin:0; 
+			background-color: lightgray;
+			font-family: 'Montserrat Light', sans-serif;
+		}
+		@font-face {
+   		font-family: 'Montserrat Light';
+   		src: url(fonts/Montserrat-Light.ttf);
+		}
+		section{
+			margin-top:10px;
+			height: 100%;
+			display: grid;
+			grid-template-columns: 500px;
+			justify-content: center;
+			grid-row-gap: 25px;
+		}
+		article{
+			height: 75px;
+			width: 500px;			
+		}
+		input[type=text] {
+	  	width: 100%;
+			padding: 12px 20px;
+			margin: 8px 0;
+			box-sizing: border-box;
+			border:none;
+			border-bottom: 3px solid gray;
+			outline: none;
+			font-size: 20px;
+		}
+		input[type=text]:focus {
+  			border-bottom-color: crimson;
+  			transition: border-bottom-color 2s;
+		}
+		a{
+		color: crimson;
+		text-decoration: none;
+		text-transform: uppercase;
+		font-size: 20px;
+		justify-self: center;
+		}
+		.button {
+ 		width: 130px;
+		height: 40px;
+		line-height: 40px;
+		text-align: center;
+		border: 2px solid crimson;
+		}
+		.button:hover {
+		color: #fff;
+		background-color: crimson;
+		transition: background-color 1.5s, color 1.5s;
+		}
+		.result{
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr;
+		}
+		#result{
+			font-size: 50px;
+			justify-self: center;
+		}
+	</style>
+</head>
+<body>
+	<section>
+		<article>
+			<h4>В каком году была основана фирма BMW?</h4>
+			<input type="text" id="q1" maxlength="4">
+		</article>
+		<article>
+			<h4>В каком году был полет Ю.Гагарина?</h4>
+			<input type="text" id="q2" maxlength="4">
+		</article>
+		<article>
+			<h4>В каком году умер Сталин?</h4>
+			<input type="text" id="q3" maxlength="4">
+		</article>
+		<article>
+			<h4>В каком году был совершен первый успешный полет(самолета)?</h4>
+			<input type="text" id="q4" maxlength="4">
+		</article>
+		<article>
+			<h4>Укажите калибр(мм) танка "Tiger II"?</h4>
+			<input type="text" id="q5" maxlength="2">
+		</article>
+		<a class="button" href="#" id="btn">готово</a>
+		<article class="result">
+			<a style="justify-self: end;">correct </a>
+			<a id="result">0</a>
+			<a style="justify-self: start;">of 5</a>
+		</article>
+	</section>
+	<script>
+		document.getElementById('btn').addEventListener('click', function() {
+			let q1 = document.getElementById('q1');
+			let q2 = document.getElementById('q2');
+			let q3 = document.getElementById('q3');
+			let q4 = document.getElementById('q4');
+			let q5 = document.getElementById('q5');
+			let countCorrect = 0;
+
+			let answersArray = [1916, 1961, 1953, 1903, 88];
+
+			if (parseInt(q1.value) == answersArray[0]) {
+				countCorrect++;
+				q1.style.backgroundColor = "rgba(123, 239, 178, 1)";
+			} else {
+				q1.style.backgroundColor = "rgba(210, 77, 87, .3)";
+			}
+
+			if (parseInt(q2.value) == answersArray[1]) {
+				countCorrect++;
+				q2.style.backgroundColor = "rgba(123, 239, 178, 1)";
+			} else {
+				q2.style.backgroundColor = "rgba(210, 77, 87, .3)";
+			}
+
+			if (parseInt(q3.value) == answersArray[2]) {
+				countCorrect++;
+				q3.style.backgroundColor = "rgba(123, 239, 178, 1)";
+			} else {
+				q3.style.backgroundColor = "rgba(210, 77, 87, .3)";
+			}
+
+			if (parseInt(q4.value) == answersArray[3]) {
+				countCorrect++;
+				q4.style.backgroundColor = "rgba(123, 239, 178, 1)";
+			} else {
+				q4.style.backgroundColor = "rgba(210, 77, 87, .3)";
+			}
+
+			if (parseInt(q5.value) == answersArray[4]) {
+				countCorrect++;
+				q5.style.backgroundColor = "rgba(123, 239, 178, 1)";
+			} else {
+				q5.style.backgroundColor = "rgba(210, 77, 87, .3)";
+			}
+
+			let result = document.getElementById('result');
+			result.innerHTML = countCorrect;
+		});
+	</script>
+</body>
+</html>
